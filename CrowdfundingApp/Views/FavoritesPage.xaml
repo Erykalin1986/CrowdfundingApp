@@ -3,10 +3,52 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CrowdfundingApp.Views.FavoritesPage"
              Shell.NavBarIsVisible="False">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+
+    <Grid RowDefinitions="*,*,Auto">
+        <VerticalStackLayout Grid.Row="0" Margin="0,50,0,0">
+            <Image Source="lamp" WidthRequest="90" HeightRequest="90" />
+            <Label HorizontalTextAlignment="Center">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span TextColor="{StaticResource Primary}" Text="CROW" FontSize="40" FontFamily="MontserratRegular" />
+                        <Span TextColor="{StaticResource Primary}" Text="DFUND" FontSize="40" FontAttributes="Bold" FontFamily="MontserratBold" />
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+        </VerticalStackLayout>
+
+        <VerticalStackLayout Grid.Row="1" Margin="20,0" Spacing="20">
+            <Button Text="CREATE A PROJECT" HeightRequest="65" Padding="20,10" Style="{StaticResource outlineButtonStyle}" />
+
+            <Button Text="MAKE A DONATION" HeightRequest="65" Padding="20" Style="{StaticResource primaryButtonStyle}" />
+        </VerticalStackLayout>
+
+        <Border Grid.Row="2" BackgroundColor="{StaticResource Primary}" HeightRequest="180" Stroke="{StaticResource Primary}" StrokeThickness="1" Margin="-1">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="55,55,0,0" />
+            </Border.StrokeShape>
+
+            <VerticalStackLayout Margin="0,50,0,0" Spacing="15">
+                <HorizontalStackLayout HorizontalOptions="Center" Spacing="20">
+                    <Image Source="facebook.svg" WidthRequest="35" HeightRequest="35" />
+                    <Image Source="instagram.svg" WidthRequest="35" HeightRequest="35" />
+                    <Image Source="twitter.svg" WidthRequest="35" HeightRequest="35" />
+                </HorizontalStackLayout>
+
+                <Label HorizontalTextAlignment="Center">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span TextColor="White" Text="Don't have an account? " FontSize="15" FontFamily="MontserratRegular" />
+                            <Span TextColor="White" Text="Register" FontSize="15" FontAttributes="Bold" TextDecorations="Underline" FontFamily="MontserratBold">
+                                <Span.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                                </Span.GestureRecognizers>
+                            </Span>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </VerticalStackLayout>
+        </Border>
+    </Grid>
+
 </ContentPage>

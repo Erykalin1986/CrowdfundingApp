@@ -13,6 +13,10 @@ namespace CrowdfundingApp
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+                    fonts.AddFont("MontserratBold.ttf", "MontserratBold");
+                    fonts.AddFont("MontserratExtraBold.ttf", "MontserratExtraBold");
+                    fonts.AddFont("MontserratRegular.ttf", "MontserratRegular");
+                    fonts.AddFont("MontserratSemiBold.ttf", "MontserratSemiBold");
                 }).ConfigureMauiHandlers(handlers =>
                 {
 #if ANDROID

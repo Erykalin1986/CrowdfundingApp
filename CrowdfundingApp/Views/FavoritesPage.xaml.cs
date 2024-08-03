@@ -6,4 +6,9 @@ public partial class FavoritesPage : ContentPage
 	{
 		InitializeComponent();
 	}
+
+    private void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
+    {
+		DisplayAlert("Alert", "Register clicked!", "Cansel");
+    }
 }

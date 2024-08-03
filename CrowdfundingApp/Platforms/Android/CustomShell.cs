@@ -38,6 +38,7 @@ namespace CrowdfundingApp.Platforms.Android
             bottomView.SetBackgroundColor(Color.FromRgb(1, 197,255).ToPlatform());
             bottomView.ItemIconTintList = ColorStateList.ValueOf(Colors.White.ToPlatform());
             bottomView.SetPadding(100, 50, 100, 50);
+            bottomView.Elevation = 0;
 
             // Changed the selected tab icon color.
             BottomNavigationMenuView? bottomNavView = bottomView.GetChildAt(0) as BottomNavigationMenuView;
