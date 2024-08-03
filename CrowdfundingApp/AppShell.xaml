@@ -3,9 +3,22 @@
     x:Class="CrowdfundingApp.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:CrowdfundingApp"
-    Shell.FlyoutBehavior="Disabled"
-    Title="CrowdfundingApp">
+    xmlns:views="clr-namespace:CrowdfundingApp.Views"
+    Shell.FlyoutBehavior="Disabled">
 
-   
+    <TabBar>
+        <Tab Icon="favorite_24dp.svg">
+            <ShellContent Title="Панель управления" ContentTemplate="{DataTemplate views:FavoritesPage}" />
+        </Tab>
+        <Tab Icon="dashboard_24dp.svg">
+            <ShellContent Title="Меню" ContentTemplate="{DataTemplate views:MenuPage}" />
+        </Tab>
+        <Tab Icon="chat_24dp.svg">
+            <ShellContent Title="Профиль" ContentTemplate="{DataTemplate views:ChatsPage}" />
+        </Tab>
+        <Tab Icon="person_24dp.svg">
+            <ShellContent Title="Выход" ContentTemplate="{DataTemplate views:ProfilePage}" />
+        </Tab>
+    </TabBar>
+    
 </Shell>
