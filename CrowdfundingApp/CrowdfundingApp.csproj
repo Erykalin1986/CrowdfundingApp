@@ -24,7 +24,7 @@
 		<ApplicationTitle>CrowdfundingApp</ApplicationTitle>
 
 		<!-- App Identifier -->
-		<ApplicationId>com.companyname.crowdfundingapp</ApplicationId>
+		<ApplicationId>ru.erykalin.crowdfundingapp</ApplicationId>
 
 		<!-- Versions -->
 		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
