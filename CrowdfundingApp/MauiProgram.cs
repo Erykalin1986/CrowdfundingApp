@@ -1,6 +1,5 @@
 ﻿using epj.ProgressBar.Maui;
 using Microsoft.Extensions.Logging;
-using Microsoft.Maui.Controls.PlatformConfiguration;
 using Microsoft.Maui.Platform;
 
 namespace CrowdfundingApp

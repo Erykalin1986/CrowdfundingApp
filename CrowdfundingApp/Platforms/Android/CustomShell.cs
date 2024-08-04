@@ -35,7 +35,7 @@ namespace CrowdfundingApp.Platforms.Android
         {
             bottomView.LabelVisibilityMode = LabelVisibilityMode.LabelVisibilityUnlabeled;
             bottomView.ItemIconSize = 75;
-            bottomView.SetBackgroundColor(Color.FromRgb(1, 197,255).ToPlatform());
+            bottomView.SetBackgroundColor(Color.FromRgb(1, 197, 255).ToPlatform());
             bottomView.ItemIconTintList = ColorStateList.ValueOf(Colors.White.ToPlatform());
             bottomView.SetPadding(100, 50, 100, 50);
             bottomView.Elevation = 0;

@@ -2,11 +2,33 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CrowdfundingApp.Views.ProfilePage"
-             Shell.NavBarIsVisible="False">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+             Shell.NavBarIsVisible="False" BackgroundColor="White">
+
+    <VerticalStackLayout Margin="0,50,0,0" Spacing="15">
+        <Label HorizontalTextAlignment="Center">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span TextColor="{StaticResource Primary}" Text="Welcome" FontSize="40" FontFamily="MontserratRegular" />
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+
+        <Label HorizontalTextAlignment="Center">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span TextColor="{StaticResource Primary}" Text="to" FontSize="40" FontFamily="MontserratRegular" />
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+
+        <Label HorizontalTextAlignment="Center">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span TextColor="{StaticResource Primary}" Text="CROW" FontSize="40" FontFamily="MontserratRegular" />
+                    <Span TextColor="{StaticResource Primary}" Text="DFUND!" FontSize="40" FontAttributes="Bold" FontFamily="MontserratBold" />
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
     </VerticalStackLayout>
+    
 </ContentPage>

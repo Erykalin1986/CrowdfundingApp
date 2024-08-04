@@ -2,11 +2,112 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CrowdfundingApp.Views.ChatsPage"
-             Shell.NavBarIsVisible="False">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             Shell.NavBarIsVisible="False" BackgroundColor="{StaticResource Primary}">
+
+    <Grid RowDefinitions="Auto,*,Auto">
+        <Border BackgroundColor="White" StrokeThickness="0" HeightRequest="300">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="0,0,60,60" />
+            </Border.StrokeShape>
+
+            <Grid RowDefinitions="Auto,Auto,Auto">
+                <Grid ColumnDefinitions="Auto,*,Auto">
+                    <Grid ColumnDefinitions="Auto,Auto" Margin="20" WidthRequest="200" HorizontalOptions="Start">
+                        <Picker x:Name="thePicker" Grid.Column="0" FontSize="18" FontFamily="MontserratSemiBold" TextColor="Gray">
+                            <Picker.Items>
+                                <x:String>PROJECTS</x:String>
+                            </Picker.Items>
+                        </Picker>
+
+                        <Image Grid.Column="1" Source="arrow_down_24dp.svg" WidthRequest="20" HeightRequest="20" />
+                    </Grid>
+
+                    <Border Grid.Column="2" Stroke="{StaticResource Primary}" Margin="20" StrokeThickness="2" WidthRequest="110" HeightRequest="45">
+                        <Border.StrokeShape >
+                            <RoundRectangle CornerRadius="10" />
+                        </Border.StrokeShape>
+
+                        <Grid ColumnDefinitions="Auto,*" HorizontalOptions="Center">
+                            <Image Grid.Column="0" Source="person_24dp_primary" HeightRequest="25" WidthRequest="25" Margin="0,0,5,0" />
+                            <Label Grid.Column="1" Text="476" TextColor="{StaticResource Primary}" VerticalOptions="Center" FontSize="20" />
+                        </Grid>
+                    </Border>
+                </Grid>
+
+                <Grid Grid.Row="1" ColumnDefinitions="Auto,*,Auto" Margin="25">
+                    <VerticalStackLayout Grid.Row="2" Spacing="5">
+                        <Label Text="Campaign" TextColor="{StaticResource Primary}" />
+                        <Label Text="NAME OF PROJECT" FontSize="18" FontFamily="MontserratBold" TextColor="Black" />
+                    </VerticalStackLayout>
+
+                    <Image Grid.Column="2" Source="favorite_24dp_primary.svg" WidthRequest="25" HeightRequest="25" />
+                </Grid>
+
+                <VerticalStackLayout Grid.Row="2" Spacing="5">
+                    <Border Grid.Column="2" Stroke="{StaticResource Primary}" StrokeThickness="2.5" HeightRequest="50" WidthRequest="180">
+                        <Border.StrokeShape >
+                            <RoundRectangle CornerRadius="10" />
+                        </Border.StrokeShape>
+
+                        <Label HorizontalTextAlignment="Center" VerticalTextAlignment="Center">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="$" FontSize="35" FontFamily="MontserratSemiBold" TextColor="{StaticResource Primary}" />
+                                    <Span x:Name="selectedDonationValueSpan" FontSize="35" FontFamily="MontserratSemiBold" TextColor="{StaticResource Primary}" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </Border>
+
+                    <Label Text="Selected amount" HorizontalTextAlignment="Center" TextColor="{StaticResource Primary}" />
+                </VerticalStackLayout>
+            </Grid>
+        </Border>
+
+        <CollectionView x:Name="donationsValuesCV" Grid.Row="1" VerticalOptions="Center" ItemsSource="{Binding DonationsValuesList}" Margin="20,20,20,0"
+                        SelectionMode="Single" SelectionChanged="donationsValuesCV_SelectionChanged">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Span="3" Orientation="Vertical" />
+            </CollectionView.ItemsLayout>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border Stroke="{StaticResource Primary}" StrokeThickness="2" BackgroundColor="White"
+                            WidthRequest="100" HeightRequest="100" Margin="0,0,0,20">
+                        <Border.StrokeShape >
+                            <RoundRectangle CornerRadius="15" />
+                        </Border.StrokeShape>
+
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup Name="CommonStates">
+                                <VisualState Name="Normal" />
+                                <VisualState Name="Selected">
+                                    <VisualState.Setters>
+                                        <Setter Property="BackgroundColor" Value="{StaticResource Primary}" />
+                                        <Setter Property="Stroke" Value="White" />
+                                        <Setter TargetName="dollarSymbolSpan" Property="Span.TextColor" Value="White" />
+                                        <Setter TargetName="donationValueSpan" Property="Span.TextColor" Value="White" />
+                                        <Setter Property="HeightRequest" Value="110" />
+                                        <Setter Property="WidthRequest" Value="110" />
+                                    </VisualState.Setters>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+
+                        <Label HorizontalTextAlignment="Center" VerticalOptions="Center">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span x:Name="dollarSymbolSpan" Text="$" TextColor="{StaticResource Primary}" FontSize="25" FontFamily="MontserratBold" />
+                                    <Span x:Name="donationValueSpan" Text="{Binding DonationValue}" TextColor="{StaticResource Primary}" FontSize="25" FontFamily="MontserratBold" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Button Grid.Row="2" Style="{StaticResource primaryButtonStyle}" Text="DONATE" WidthRequest="200" HeightRequest="50" Margin="0,0,0,20" />
+    </Grid>
+    
 </ContentPage>
