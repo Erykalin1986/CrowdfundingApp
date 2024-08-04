@@ -55,6 +55,10 @@
                     </VisualStateGroupList>
                 </Setter>
             </Style>
+
+            <Style TargetType="Label">
+                <Setter Property="FontFamily" Value="MontserratSemiBold" />
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

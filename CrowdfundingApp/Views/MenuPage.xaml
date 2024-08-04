@@ -1,12 +1,85 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:maui="clr-namespace:epj.ProgressBar.Maui;assembly=epj.ProgressBar.Maui"
              x:Class="CrowdfundingApp.Views.MenuPage"
-             Shell.NavBarIsVisible="False">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             Shell.NavBarIsVisible="False" BackgroundColor="{StaticResource Primary}">
+
+    <Border BackgroundColor="White" StrokeThickness="0">
+        <Border.StrokeShape>
+            <RoundRectangle CornerRadius="0,0,55,55" />
+        </Border.StrokeShape>
+
+        <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto">
+            <Grid ColumnDefinitions="Auto,Auto" Margin="20" WidthRequest="200" HorizontalOptions="Start">
+                <Picker x:Name="thePicker" Grid.Column="0" FontSize="18" FontFamily="MontserratSemiBold" TextColor="Gray">
+                    <Picker.Items>
+                        <x:String>PROJECTS</x:String>
+                    </Picker.Items>
+                </Picker>
+
+                <Image Grid.Column="1" Source="arrow_down_24dp.svg" WidthRequest="20" HeightRequest="20" />
+            </Grid>
+
+            <Border Grid.Row="1" HeightRequest="60" Stroke="LightGray" StrokeThickness="1.5" Margin="30,20" Padding="15,0">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="10" />
+                </Border.StrokeShape>
+
+                <Grid ColumnDefinitions="*, Auto, Auto">
+                    <Entry Grid.Column="0" VerticalOptions="Center" Placeholder="Search..." FontSize="18" TextColor="{StaticResource Primary}" FontFamily="MontserratRegular"
+                           Margin="10,0" />
+                    <Image Grid.Column="1" Source="search_24dp.svg" WidthRequest="25" HeightRequest="25" Margin="5,0,10,0" />
+                    <Label Grid.Column="2" Text="Search" VerticalTextAlignment="Center" FontFamily="MontserratSemiBold" FontSize="14" Margin="0,0,10,0" TextColor="Grey" />
+                </Grid>
+            </Border>
+
+            <VerticalStackLayout Grid.Row="2" Margin="25" Spacing="15">
+                <Label Text="Campaign" TextColor="{StaticResource Primary}" />
+
+                <VerticalStackLayout>
+                    <Label Text="NAME OF PROJECT" FontSize="18" FontFamily="MontserratBold" TextColor="Black" />
+                    <Label Text="6 days  of donation left" TextColor="{StaticResource Primary}" />
+                </VerticalStackLayout>
+
+                <Label Text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book." 
+                      FontSize="12" TextColor="LightGray" />
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Grid.Row="3" Margin="25" Spacing="10">
+                <Border Padding="0" HeightRequest="12" StrokeThickness="0" VerticalOptions="Center">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="10" />
+                    </Border.StrokeShape>
+                    <maui:ProgressBar Progress="0.66" ProgressColor="{StaticResource Primary}" HeightRequest="12" BaseColor="#e6f9ff" UseGradient="False" />
+                </Border>
+
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="$ " FontSize="22" FontFamily="MontserratBold" TextColor="{StaticResource Primary}" />
+                            <Span Text="420 " FontSize="24" FontFamily="MontserratBold" TextColor="{StaticResource Primary}" />
+                            <Span Text="backed" FontSize="16" FontFamily="MontserratBold" TextColor="{StaticResource Primary}" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="$ " FontSize="22" FontFamily="MontserratBold" />
+                            <Span Text="280 " FontSize="24" FontFamily="MontserratBold" />
+                            <Span Text="goal" FontSize="16" FontFamily="MontserratBold" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Grid.Row="4" Margin="25,10" Spacing="10">
+                <Button Text="DONATE" Style="{StaticResource primaryButtonStyle}" HeightRequest="50" WidthRequest="200" />
+                <Button Text="READ MORE" Style="{StaticResource outlineButtonStyle}" HeightRequest="50" WidthRequest="200" />
+            </VerticalStackLayout>
+        </Grid>
+    </Border>
+    
 </ContentPage>

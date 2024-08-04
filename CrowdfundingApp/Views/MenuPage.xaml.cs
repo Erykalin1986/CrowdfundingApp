@@ -6,4 +6,10 @@ public partial class MenuPage : ContentPage
 	{
 		InitializeComponent();
 	}
+
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+        this.thePicker.SelectedIndex = 0;
+    }
 }
